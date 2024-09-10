@@ -1,0 +1,41 @@
+// variables
+@use 'mixins' as mixin;
+@import 'variables';
+
+// $color-primary: green;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    @include mixin.flex-column;
+    background-color:  $bg-color-primary;
+    color: $color-black;
+    font-family: sans-serif;
+    height: 100dvh;
+    width: 100%;
+}
+header,
+footer {
+    height: 80px;
+    font-size: $font-size-very-small;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+main {
+    @include mixin.flex-column;
+    flex: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+
+
