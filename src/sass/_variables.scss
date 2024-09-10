@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 // colors
 $bg-color-primary: #0000aa26;
 $bg-color-secondary: #f0f0f0;
 $color-black: #000;
+$color-white: #fff;
+$color-white-darker: #cccccc;
 $color-highlight: #00f;
+
+
+// font family
+$font: "Nerko One", cursive;
+$font-alt: "Rubik", sans-serif;
 
 
 // font-size
@@ -13,12 +21,17 @@ $font-size-very-small: 10px;
 
 
 // unit sizes
-$four: 4px;
-$five: 5px;
-$eight: 8px;
+$small: 4px;
+$medium: 5px;
+$large: 10px;
 
 // border-radius
-$radius: $five;
+$radius: $medium;
+
+
+
+
+
 
 
 

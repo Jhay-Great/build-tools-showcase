@@ -2,20 +2,11 @@ import './sass/main.scss';
 import data from './assets/data.json';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // cardElement();
     const main = document.querySelector('main');
-    console.log(main);
 
-    
-    renderElement(cardElement(), main);
-    // console.log(data);
     data.forEach(data => {
-        cardElement();
-        cardElement().querySelector('.name').textContent = data.name;
-        cardElement().querySelector('.description').textContent = data.description;
-        cardElement.querySelector('.url').textContent = data.url;
-        // console.log(document.querySelector('.build-tool-img').setAttribute('src', data.icon));
-        console.log(data.name);
+        renderElement(cardElement(data), main);
+        
 
     })
 });
@@ -34,8 +25,10 @@ const createHTMLElement = function(type, className='') {
     return element;
 }
 
+// create card element
 const cardElement = function (data) {
     const cardParentElement = createHTMLElement('div', 'card');
+    const imgContainer = createHTMLElement('div', 'img-container');
     const cardImage = createHTMLElement('img', 'build-tool-img');
     const infoContainer = createHTMLElement('div', 'card-info');
     const toolName = createHTMLElement('p', 'name');
@@ -49,12 +42,13 @@ const cardElement = function (data) {
     cardImage.setAttribute('alt', `an image of ${data.name} build tool`);
 
 
+    imgContainer.append(cardImage);
 
     infoContainer.append(toolName);
     infoContainer.append(description);
     infoContainer.append(url);
 
-    cardParentElement.append(cardImage);
+    cardParentElement.append(imgContainer);
     cardParentElement.append(infoContainer);
 
     console.log(cardParentElement);
@@ -64,18 +58,12 @@ const cardElement = function (data) {
 
 }
 
+// abstract data insertion logic
 // const addDataToElement = function(data) {
 
 // }
 
-// const populateData = function (data, elmement) {
-//     data.forEach(data => {
-//         element.textContent = data.name;
-//         elment
-//         document.querySelector()
-//     })
-// }
-
+// render to ui
 const renderElement = function (element, parent) {
     return parent.append(element);
 }

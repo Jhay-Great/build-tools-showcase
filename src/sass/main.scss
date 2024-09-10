@@ -1,5 +1,6 @@
 // variables
 @use 'mixins' as mixin;
+@use 'function' as function;
 @import 'variables';
 
 // $color-primary: green;
@@ -23,64 +24,117 @@ header,
 footer {
     height: 80px;
     font-size: $font-size-very-small;
+    display: flex;
+    align-items: center;
+    padding-inline: 1rem;
+}
+header {
+    box-shadow: 0px 2px 20px 2px rgba(0, 0, 0, 0.1333333333);
+    background-color: $color-white;
+}
+footer {
+    justify-content: flex-end;
 }
 
 .logo {
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size: $font-size-small;
+    letter-spacing: -2px;
+    font-weight: 400;
 }
 
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+// main {
+//     @include mixin.flex-column;
+//     flex: 1;
+//     overflow-y: scroll;
+//     scrollbar-width: none;
+// }
 main {
-    @include mixin.flex-column;
     flex: 1;
+    display: flex;
     overflow-y: scroll;
     scrollbar-width: none;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding-block: function.triple($large);
 }
 
 .card {
-    width: 200px;
-    height: fit-content;
+    width: 250px;
+    height: 400px;
     position: relative;
     @include mixin.flex-column;
+    font-family: $font;
 
     border-radius: $radius;
     overflow: hidden;
-}
-.card-image-container {
-    width: 100%;
-    // height: 100%;
-}
-.card-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    border: 1px solid $color-white;
+    background-color: $color-white;
+    gap: 10px;
+
+    .img-container {
+        // @include mixin.flex(false);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 180px;
+    
+        img {
+            
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        
+        }
+    }
 
 }
+
+
 .card-info {
+    @include mixin.flex(true);
+    @include mixin.color;
     width: 100%;
     height: 100%;
     padding: 1rem;
+    flex: 2;
+    background-color: $color-white-darker;
 }
 .name, .description {
     font-size: clamp($font-size-small, 3vw, $font-size-very-small);
 }
 .name {
-    // font-size: $font-size-small;
-    font-weight: 600;
+    text-transform: capitalize;
+    font-weight: 200;
     letter-spacing: 1.1px;
+    font-size: $font-size-medium;
+    // font-family: $font-alt;
 }
+.description, .url {
+    font-family: $font-alt;
+}
+
 .description {
-    // font-size: $font-size-small;
+    font-size: $font-size-small;
     font-weight: 400;
     word-spacing: 1.1px;
+    line-height: 1.3;
 }
 .url {
     font-size: $font-size-very-small;
     text-decoration: underline;
-}
-.url:hover {
-    color: $color-highlight;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-highlight;
+    }
 }
 
 
