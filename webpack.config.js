@@ -1,5 +1,6 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
+require("dotenv").config();
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -61,12 +62,18 @@ const config = {
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
   },
+  // devtool: isProduction ? "source-map" : "eval-source-map",
+  // mode: isProduction ? "production" : "development",
+  // devtool: "source-map",
 };
+
+// module.exports = () => config;
 
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
+    devtool = "source-map";
     config.plugins.push(new MiniCssExtractPlugin());
   } else {
     config.mode = "development";
