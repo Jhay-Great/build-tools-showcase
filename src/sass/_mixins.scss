@@ -1,5 +1,4 @@
-// flex
-// $radius: 5px;
+
 
 @mixin flex-column {
     display: flex;
@@ -16,6 +15,9 @@
 
 }
 
-@mixin color {
-    background-color: green;
-}
+
+@mixin font-class($size) {
+    .font-#{$size} {
+      font-size: $size;
+    }
+  }

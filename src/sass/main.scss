@@ -100,7 +100,6 @@ main {
 
 .card-info {
     @include mixin.flex(true);
-    @include mixin.color;
     width: 100%;
     height: 100%;
     padding: 1rem;
